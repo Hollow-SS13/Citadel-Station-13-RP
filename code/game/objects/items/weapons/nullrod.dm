@@ -10,6 +10,8 @@
 	throw_range = 4
 	throwforce = 10
 	w_class = ITEMSIZE_SMALL
+	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 
 	var/reskinned = FALSE
 	var/defend_chance = 0	// The base chance for the weapon to parry.
@@ -20,7 +22,7 @@
 			slot_r_hand_str = 'icons/mob/items/righthand_melee.dmi',
 			)
 
-	var/SA_bonus_damage = 25 // 40 total against demons and aberrations.
+	var/SA_bonus_damage = 35 // 50 total against demons and aberrations.
 	var/SA_vulnerability = MOB_CLASS_DEMONIC | MOB_CLASS_ABERRATION
 
 /obj/item/nullrod/Initialize()
@@ -345,8 +347,8 @@
 	name = "carp-sie plushie"
 	desc = "An adorable stuffed toy that resembles the god of all carp. The teeth look pretty sharp. Activate it to receive the blessing of Carp-Sie."
 	icon = 'icons/obj/toy.dmi'
-	icon_state = "baseplush"
-	item_state = "baseplush"
+	icon_state = "basecarp"
+	item_state = "basecarp"
 	force = 15
 	attack_verb = list("bitten", "eaten", "fin slapped")
 	hitsound = 'sound/weapons/bite.ogg'
@@ -405,7 +407,7 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 
-/obj/item/nullrod/tribal_knife/process()
+/obj/item/nullrod/tribal_knife/process(delta_time)
 	slowdown = rand(-2, 2)
 
 /obj/item/nullrod/pitchfork
